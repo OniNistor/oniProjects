@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Random Adventurers</title>
+    <link rel="stylesheet" href="game2.css">
+    <link href='https://fonts.googleapis.com/css?family=Covered By Your Grace' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Oooh Baby' rel='stylesheet'>
+    <link rel="stylesheet" href="mainpage-style.css">
+</head>
+
+<body>
+    <nav>
+        <ul class="nav-list">
+            <li><a href="mainpage.html">Main Page</a></li>
+            <li> <a href="calculator.html">Calculator</a></li>
+            <li class="active"> <a href="game2.html" aria-current="page">Party Builder Game</a></li>
+            <li> <a href="converter.html">Unit Converters</a></li>
+        </ul>
+    </nav>
+
+    <div id="testDiv">
+        <h1>Party Builder</h1>
+        <div id="gameContainer1">
+            <div id="rulesContainer">
+                <article>
+                    <h1>Game Rules</h1>
+                    <p>Random adventurers will come to visit you!<br>
+                        When you meet an adventurer, you will have two options.<br>
+                        You can RECRUIT them, and they will be added to your party.<br>
+                        Or you can REJECT them to skip to the next adventurer.<br>
+                        You may only RECRUIT a total of 5 times.
+                        You may only REJECT a total of 7 times.<br>
+                        So you must decide carefully who to RECRUIT and who to REJECT.<br>
+                        Each adventurer will have a level.
+                        Anytime an adventurer is added to your party,<br>
+                        their level is added to the party's overall average level.<br>
+                        The objective is to assembly a party with the highest possible score.<br>
+                        The game will end when you have recruited your fifth member.<br>
+                        GOOD LUCK!</p><br>
+                    <button id="buttonBegin" onclick="searchMembers()">ASSEMBLE PARTY</button>
+                </article>
+
+
+            </div>
+            <div id="boxContainer">
+                <div id="raceBox" class="box">
+                    <p>RACE</p>
+                    <p id="raceTest">***</p>
+                    <div id="raceImg"></div>
+                </div>
+
+                <div id="roleBox" class="box">
+                    <p>CLASS</p>
+                    <p id="roleTest">***</p>
+                    <div id="roleImg"></div>
+                </div>
+
+                <div id="levelBox" class="box">
+                    <p>LEVEL</p>
+                    <p id="levelTest">***</p>
+                    <div id="levelImg"></div>
+                </div>
+            </div>
+        </div>
+        <div id="buttonContainer">
+            <button id="buttonSearch" class="button">START GAME</button>
+            <button id="buttonRecruit" class="button">RECRUIT</button>
+            <button id="buttonReject" class="button">REJECT</button>
+            <button id="buttonReset" class="button">RESET</button>
+        </div>
+        <div id="gameContainer2">
+            <div id="rosterContainer">
+                <div id="partyRoster">
+                    <h3 id="yourPartyHeader">YOUR PARTY:</h3>
+                    <p id="yourParty"></p>
+                </div>
+
+                <div id="rejectRoster">
+                    <h3 id="rejectsHeader">REJECTS:</h3>
+                    <p id="yourRejects"></p>
+                </div>
+            </div>
+            <div id="finalScore">
+
+            </div>
+        </div>
+    </div>
+    <script src="game2.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Converter</title>
+    <link rel="stylesheet" href="converter.css">
+    <link rel="stylesheet" href="mainpage-style.css">
+
+</head>
+
+<body>
+    <nav>
+        <ul class="nav-list">
+            <li><a href="mainpage.html">Main Page</a></li>
+            <li> <a href="calculator.html">Calculator</a></li>
+            <li> <a href="game2.html">Party Builder Game</a></li>
+            <li class="active"> <a href="converter.html" aria-current="page">Unit Converters</a></li>
+        </ul>
+    </nav>
+    <div>
+        <h1>Conversion Machine 3000</h1>
+        <form id="lengthForm">
+            <h2>LENGTH</h2>
+            <input type="number" inputmode="numeric" id="inputLength" placeholder="0"><br>
+
+            <select id="unitStart" name="unitStart">
+                <option value="">Choose a unit</option>
+                <option value="Millimeters">Millimeters</option>
+                <option value="Centimeters">Centimeters</option>
+                <option value="Meters">Meters</option>
+                <option value="Kilometers">Kilometers</option>
+                <option value="Inches">Inches</option>
+                <option value="Feet">Feet</option>
+                <option value="Yards">Yards</option>
+                <option value="Miles">Miles</option>
+            </select>
+            →
+            <select id="unitEnd" name="unitEnd">
+                <option value="">Choose a unit</option>
+                <option value="Millimeters">Millimeters</option>
+                <option value="Centimeters">Centimeters</option>
+                <option value="Meters">Meters</option>
+                <option value="Kilometers">Kilometers</option>
+                <option value="Inches">Inches</option>
+                <option value="Feet">Feet</option>
+                <option value="Yards">Yards</option>
+                <option value="Miles">Miles</option>
+            </select><br>
+            <!-- <label for="toCentimeters">Inches to Centimeters</label><br> -->
+            <button type="button" onclick="convertLength()">CONVERT</button>
+            <button type="button" onclick="clearLength()" value="Reset form">CLEAR</button>
+            <p id="resultLength">Enter a value and select a method of conversion.</p>
+
+        </form><br>
+
+        <form id="tempForm">
+            <h2>TEMPERATURE</h2>
+
+            <input type="number" inputmode="numeric" id="inputTemp" placeholder="0"><br>
+
+            <select id="startTemp" name="startTemp">
+                <option value="">Choose a unit</option>
+                <option value="Celsius">°C</option>
+                <option value="Fahrenheit">°F</option>
+                <option value="Kelvin">K</option>
+
+            </select>
+            →
+            <select id="endTemp" name="endTemp">
+                <option value="">Choose a unit</option>
+                <option value="Celsius">°C</option>
+                <option value="Fahrenheit">°F</option>
+                <option value="Kelvin">K</option>
+            </select><br>
+            <!-- <label for="toCentimeters">Inches to Centimeters</label><br> -->
+            <button type="button" onclick="convertTemp()">CONVERT</button>
+            <button type="button" onclick="clearTemp()" value="Reset form">CLEAR</button>
+            <p id="resultTemp">Enter a value and select a method of conversion.</p>
+
+        </form>
+    </div>
+    <!-- <div id="canvas"></div> -->
+    <script src="converter.js"></script>
+</body>
+
+</html>

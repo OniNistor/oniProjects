@@ -1,0 +1,90 @@
+form {
+    text-align: center;
+    border: 1px solid black;
+    max-width: 350px;
+    margin: auto;
+    padding: 20px, 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0);
+}
+
+#lengthForm {
+    background-color: rgb(250, 204, 148);
+    color: black;
+}
+
+#tempForm {
+    background-color: rgb(153, 248, 141);
+    color: black;
+}
+
+input {
+    text-align: center;
+    font-size: 1.5em;
+    width: 25%;
+    margin-bottom: 15px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* input[type=number] {
+    -moz-appearance: textfield;
+} */
+
+#lengthForm input {
+    background-color: bisque;
+}
+
+#tempForm input {
+    background-color: rgb(203, 255, 196);
+}
+
+select {
+    font-size: .75em;
+    font-weight: bold;
+    flex-direction: row;
+    border: 2px solid black;
+    border-radius: 5px;
+
+}
+
+#lengthForm button {
+    margin-top: 15px;
+    background-color: bisque;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#tempForm button {
+    margin-top: 15px;
+    background-color: rgb(203, 255, 196);
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+#lengthForm button:hover {
+    background-color: rgb(247, 155, 44);
+}
+
+#tempForm button:hover {
+    background-color: rgb(44, 247, 54);
+}
+
+p {
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+}

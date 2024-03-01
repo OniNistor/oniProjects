@@ -1,0 +1,95 @@
+/* h1 {
+    font-family: Helvetica;
+    font-size: 50px;
+    line-height: 1.3;
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+} */
+
+#Calculator {
+    margin: auto;
+    padding: 300px, 0px, 300px, 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 320px;
+    width: 250px;
+    border: solid black;
+    border-radius: 20px;
+    background-color: rgb(94, 97, 107);
+}
+
+#Calculator button {
+    margin: 100px, 0, 100px, 0;
+    padding: 300px, 0px, 300px, 0px;
+    font-size: 30px;
+    height: 52px;
+    width: 52px;
+    border: solid 2px black;
+    border-radius: 26px;
+    font-family: "Audiowide";
+}
+
+#Screen {
+    margin: 10px 0;
+    flex: 1;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(44, 226, 250);
+    border: 2px solid black;
+    border-radius: 10px;
+    height: 60px;
+    width: 220px;
+    font-family: Audiowide;
+    font-size: 50px
+}
+
+#numberButton {
+    cursor: pointer;
+    background-color: white;
+    opacity: .80;
+    transition: .3s;
+}
+
+.operationButton {
+    cursor: pointer;
+    background-color: #a7a7a7;
+    text-align: center;
+    opacity: .75;
+    transition: .3s;
+}
+
+#clearButton {
+    cursor: pointer;
+    background-color: rgb(252, 85, 85);
+    opacity: .75;
+    transition: .3s;
+}
+
+#equalButton {
+    cursor: pointer;
+    background-color: #6097ff;
+    opacity: .75;
+    transition: .3s;
+}
+
+
+
+#numberButton:hover {
+    opacity: 1;
+}
+
+.operationButton:hover {
+    opacity: 1;
+}
+
+#clearButton:hover {
+    opacity: 1;
+}
+
+#equalButton:hover {
+    opacity: 1;
+}

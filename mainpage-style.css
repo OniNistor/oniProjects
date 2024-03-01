@@ -1,0 +1,53 @@
+:root {
+    --body-bg: hsl(184, 100%, 35%);
+    --nav-bg: hsl(184, 100%, 28%);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-size: 1.25rem;
+    background-color: var(--body-bg);
+    color: white;
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    gap: 2rem;
+}
+
+
+nav {
+    position: sticky;
+    top: 0;
+    max-height: 100svh;
+    background-color: var(--nav-bg);
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: grid;
+    gap: 2rem;
+    padding-block: 2rem;
+}
+
+.nav-list li {
+    /* background-color: pink; */
+    padding: 1rem 2rem;
+    margin-left: 1rem;
+    border-radius: 100vw 0 0 100vw;
+}
+
+.nav-list li.active {
+    background-color: var(--body-bg);
+}
+
+.nav-list a {
+    color: white;
+    text-decoration: none;
+}

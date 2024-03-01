@@ -1,0 +1,340 @@
+body {
+    overflow: visible;
+    /* border: solid 2px orange; */
+    height: 200vh;
+}
+
+article {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    flex: auto;
+    text-align: center;
+    margin-top: -10px;
+}
+
+article p {
+
+    width: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+article button {
+    background-color: hsl(51, 100%, 48%);
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    font-size: 1em;
+    width: 400px;
+    height: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: auto;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 10px 10px rgb(54, 54, 54);
+    z-index: 1;
+
+}
+
+
+article button:hover {
+    background-color: hsl(51, 100%, 68%);
+}
+
+
+
+article button:active {
+    background-color: hsl(51, 100%, 68%);
+    box-shadow: 5px 5px rgb(54, 54, 54);
+    transform: translate(4px, 4px);
+}
+
+
+
+img {
+    width: 150px;
+    height: 150px;
+    image-rendering: pixelated;
+}
+
+#yourPartyHeader {
+    width: 300px;
+    height: 20px;
+    margin-top: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#partyRoster {
+    background-image: url("./Test Images/Scroll.png");
+    background-origin: padding-box;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 285px;
+    height: 350px;
+    color: black;
+
+
+}
+
+#partyRoster p {
+    font-family: 'Covered by Your Grace';
+    font-size: 1.5rem;
+    font-weight: lighter;
+    color: black;
+    padding: 3px;
+    margin: auto;
+}
+
+#rejectRoster p {
+    text-decoration: line-through;
+    font-family: 'Covered by Your Grace';
+    font-size: 1.5rem;
+    font-weight: lighter;
+    color: black;
+    line-height: 1;
+    padding: 1px;
+    margin: auto;
+}
+
+#rejectRoster {
+    background-image: url("./Test Images/Scroll.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 285px;
+    height: 300px;
+
+}
+
+#rejectsHeader {
+    width: 300px;
+    height: 20px;
+    margin-top: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: black;
+
+}
+
+#buttonContainer {
+    text-align: center;
+    align-items: center;
+    display: flexbox;
+    /* border: solid salmon; */
+}
+
+.button {
+    font-size: 1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 120px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: none;
+}
+
+#buttonSearch {
+    display: inline;
+    width: 500px;
+
+}
+
+#boxContainer {
+    display: flex;
+    position: relative;
+    z-index: 0;
+    flex-wrap: auto;
+    justify-content: center;
+    visibility: hidden;
+    /* border: 2px solid red; */
+}
+
+.box {
+    margin: 10px;
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    background-color: hsl(184, 100%, 35%);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color: black;
+}
+
+#rosterContainer {
+    /* position: absolute;
+    z-index: -1; */
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    visibility: hidden;
+    /* border: 2px solid rgb(0, 255, 255); */
+}
+
+#rosterContainer div {
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* border: 2px solid; */
+    margin: 10px;
+}
+
+
+
+#buttonSearch {
+    background-color: hsl(51, 100%, 48%);
+    box-shadow: 10px 10px rgb(54, 54, 54);
+}
+
+#buttonSearch:hover {
+    background-color: hsl(51, 100%, 68%);
+}
+
+#buttonSearch:active {
+    box-shadow: 5px 5px rgb(54, 54, 54);
+    transform: translate(4px, 4px);
+}
+
+#buttonRecruit {
+    background-color: hsl(120, 100%, 25%);
+    box-shadow: 10px 10px rgb(54, 54, 54);
+}
+
+#buttonRecruit:hover {
+    background-color: hsl(120, 100%, 35%);
+}
+
+#buttonRecruit:active {
+    background-color: hsl(120, 100%, 55%);
+    box-shadow: 5px 5px rgb(54, 54, 54);
+    transform: translate(4px, 4px);
+}
+
+#buttonRecruit:disabled {
+    pointer-events: none;
+    background-color: #cccccc;
+}
+
+
+#buttonReject {
+    background-color: hsl(0, 61%, 64%);
+    box-shadow: 10px 10px rgb(54, 54, 54);
+}
+
+#buttonReject:hover {
+    background-color: hsl(0, 61%, 44%);
+}
+
+#buttonReject:active {
+    background-color: hsl(0, 100%, 74%);
+    box-shadow: 5px 5px rgb(54, 54, 54);
+    transform: translate(4px, 4px);
+}
+
+#buttonReject:disabled {
+    pointer-events: none;
+    background-color: #cccccc;
+}
+
+#buttonReset {
+    background-color: hsl(180, 100%, 27%);
+    box-shadow: 10px 10px rgb(54, 54, 54);
+}
+
+#buttonReset:hover {
+    background-color: hsl(180, 100%, 37%);
+}
+
+#buttonReset:active {
+    background-color: hsl(180, 100%, 57%);
+    box-shadow: 5px 5px rgb(54, 54, 54);
+    transform: translate(4px, 4px);
+}
+
+#gameContainer1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* border: solid peru; */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    padding: auto;
+}
+
+#rulesContainer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: hsl(34, 72%, 63%);
+    border: dashed black;
+    border-radius: 20px;
+    display: flex;
+    width: 85%;
+    height: 100%;
+    margin: auto;
+    align-content: center;
+    visibility: hidden;
+}
+
+
+#gameContainer2 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* border: solid peru; */
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    padding: auto;
+}
+
+#finalScore {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 200px;
+    background-color: rgb(235, 59, 5);
+    border: none;
+    border-radius: 20%;
+    width: 60%;
+    height: 30%;
+    margin: auto;
+    display: flex;
+    align-items: end;
+    visibility: hidden;
+}
+
+#finalScore p {
+    font-family: "Covered by Your Grace";
+    font-style: oblique;
+    font-size: 6rem;
+    text-align: center;
+    align-items: center;
+    margin: auto
+}
+
+#testDiv {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* border: dotted red 2px; */
+}
