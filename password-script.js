@@ -1,6 +1,6 @@
-"use strick";
+"use strict";
 
-//elements
+//Elements
 const lengthSliderEl = document.getElementById("slider");
 const sliderValue = document.getElementById("slider-value");
 const checkboxLowerEl = document.getElementById("checkbox-lower");
@@ -11,58 +11,39 @@ const checkboxInputs = document.querySelectorAll(".password-checkbox");
 const btnGoEl = document.querySelector(".go");
 const btnResetEl = document.querySelector(".reset");
 const passwordParaEl = document.getElementById("new-password");
-
 const lowerQty = document.querySelector(".lowerQty");
 const upperQty = document.querySelector(".upperQty");
 const numberQty = document.querySelector(".numberQty");
 const symbolQty = document.querySelector(".symbolQty");
-
 const qtyInputs = document.querySelectorAll(".qty");
 
-let inputQtyTotal = Number(
-  lowerQty.value + upperQty.value + numberQty.value + symbolQty.value
-);
-
+//Default Values
+let inputQtyTotal = 0;
 let lowercaseAmount, uppercaseAmount, numberAmount, symbolAmount;
-let passwordLength =
-  lowercaseAmount + uppercaseAmount + numberAmount + symbolAmount;
+let passwordLength = 0;
 let hasLowercase, hasUppercase, hasNumbers, hasSymbols;
 
-function updateSlider() {
+//Get new values and have them reflected in inputQtyTotal
+function updateTotal() {
+  lowercaseAmount = parseInt(lowerQty.value);
+  uppercaseAmount = parseInt(upperQty.value);
+  numberAmount = parseInt(numberQty.value);
+  symbolAmount = parseInt(symbolQty.value);
+
   inputQtyTotal =
-    Number(lowerQty.value) +
-    Number(upperQty.value) +
-    Number(numberQty.value) +
-    Number(symbolQty.value);
+    lowercaseAmount + uppercaseAmount + numberAmount + symbolAmount;
+  updateSlider();
+}
+
+//Update slider with new values
+function updateSlider(event) {
   passwordLength = inputQtyTotal;
   lengthSliderEl.value = inputQtyTotal;
   sliderValue.textContent = inputQtyTotal;
 }
 
-function warningChecks() {
-  let warnings = [];
-
-  if (hasLowercase === true && lowerQty === 0) {
-    warnings.push(`Invalid Qty (Lowercase)`);
-  }
-  if (hasUppercase === true && upperQty === 0) {
-    warnings.push(`Invalid Qty (Uppercase)`);
-  }
-  if (hasNumbers === true && numberQty === 0) {
-    warnings.push(`Invalid Qty (Numbers)`);
-  }
-  if (hasSymbols === true && symbolQty === 0) {
-    warnings.push(`Invalid Qty (Symbols)`);
-  }
-  if (warnings.length > 0) {
-    passwordParaEl.textContent = warnings.join("\n");
-  }
-}
-
-for (let y = 0; y < qtyInputs.length; y++) {
-  qtyInputs[y].addEventListener("input", updateSlider);
-}
-
+//GO BUTTON
+//Display new password or warning if nothing is selected
 btnGoEl.addEventListener("click", (event) => {
   if (passwordLength > 0) {
     passwordParaEl.textContent = getNewPassword(
@@ -75,9 +56,10 @@ btnGoEl.addEventListener("click", (event) => {
   } else {
     passwordParaEl.textContent = `Password must contain at least one character type`;
   }
-  warningChecks();
 });
 
+//RESET BUTTON
+//All values and displays to be set back to default
 btnResetEl.addEventListener("click", (event) => {
   inputQtyTotal = 0;
   lengthSliderEl.value = 0;
@@ -96,15 +78,25 @@ btnResetEl.addEventListener("click", (event) => {
   }
 });
 
-// lengthSliderEl.addEventListener("input", (event) => {
-//   passwordLength = qtyInputs.value;
-// });
+//NUMBER INPUTS
+//Anytime an input recieves an update, the new value will be reflected on the slider
+lowerQty.addEventListener("change", updateTotal);
+upperQty.addEventListener("change", updateTotal);
+numberQty.addEventListener("change", updateTotal);
+symbolQty.addEventListener("change", updateTotal);
 
+//CHECKBOXES
+//If checked, input will display with value of 1
+//If not checked, input will not show and value will return to 0
 checkboxLowerEl.addEventListener("click", (event) => {
   checkboxLowerEl.checked ? (hasLowercase = true) : (hasLowercase = false);
   lowerQty.classList.toggle("hidden");
   if (lowerQty.classList.contains("hidden")) {
     lowerQty.value = 0;
+    updateTotal();
+  } else {
+    lowerQty.value = 1;
+    updateTotal();
   }
 });
 
@@ -113,6 +105,10 @@ checkboxUpperEl.addEventListener("click", (event) => {
   upperQty.classList.toggle("hidden");
   if (upperQty.classList.contains("hidden")) {
     upperQty.value = 0;
+    updateTotal();
+  } else {
+    upperQty.value = 1;
+    updateTotal();
   }
 });
 
@@ -121,6 +117,10 @@ checkboxNumbersEl.addEventListener("click", (event) => {
   numberQty.classList.toggle("hidden");
   if (numberQty.classList.contains("hidden")) {
     numberQty.value = 0;
+    updateTotal();
+  } else {
+    numberQty.value = 1;
+    updateTotal();
   }
 });
 
@@ -129,14 +129,14 @@ checkboxSymbolsEl.addEventListener("click", (event) => {
   symbolQty.classList.toggle("hidden");
   if (symbolQty.classList.contains("hidden")) {
     symbolQty.value = 0;
+    updateTotal();
+  } else {
+    symbolQty.value = 1;
+    updateTotal();
   }
 });
 
-//display length to match slider
-function showVal(newVal) {
-  sliderValue.innerHTML = newVal;
-}
-
+//New Password Creation
 function getNewPassword(
   length,
   hasLowercase,
@@ -149,51 +149,54 @@ function getNewPassword(
   numberAmount = numberQty.value;
   symbolAmount = symbolQty.value;
 
+  //Collections to house character candidates to be used if Password contains specified character
   let usableLowerChars = [];
   let usableUpperChars = [];
   let usableNumberChars = [];
   let usableSymbolChars = [];
 
+  //Potential candidates for each character type
   let lowercaseChars = "abcdefghijklmnopqrstuvwxyz";
   let uppercaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let numberChars = "1234567890";
   let symbolChars = "!@#$%^&*+=?.";
 
+  //collect Lowercase candidates and store in respective array
   if (hasLowercase === true && lowercaseAmount > 0) {
     for (let a = 0; a < lowercaseAmount; a++) {
       let randomPickLower = Math.floor(Math.random() * lowercaseChars.length);
       usableLowerChars.push(lowercaseChars[randomPickLower]);
     }
   }
-
+  //collect Uppercase candidates and store in respective array
   if (hasUppercase === true && uppercaseAmount > 0) {
     for (let b = 0; b < uppercaseAmount; b++) {
       let randomPickUpper = Math.floor(Math.random() * uppercaseChars.length);
       usableUpperChars.push(uppercaseChars[randomPickUpper]);
     }
   }
-
+  //collect Number candidates and store in respective array
   if (hasNumbers === true && numberAmount > 0) {
     for (let c = 0; c < numberAmount; c++) {
       let randomPickNumber = Math.floor(Math.random() * numberChars.length);
       usableNumberChars.push(numberChars[randomPickNumber]);
     }
   }
-
+  //collect Symbol candidates and store in respective array
   if (hasSymbols == true && symbolAmount > 0) {
     for (let d = 0; d < symbolAmount; d++) {
       let randomPickSymbol = Math.floor(Math.random() * symbolChars.length);
       usableSymbolChars.push(symbolChars[randomPickSymbol]);
     }
   }
-
+  //Unite all eligible collections of candidates into sinlge array
   let combinedChars = [
     ...usableLowerChars,
     ...usableUpperChars,
     ...usableNumberChars,
     ...usableSymbolChars,
   ];
-
+  //Shuffle all collected candidates and return as one unified item
   for (let z = combinedChars.length - 1; z > 0; z--) {
     let randomIndex = Math.floor(Math.random() * (z + 1));
     let temp = combinedChars[z];
@@ -202,16 +205,3 @@ function getNewPassword(
   }
   return combinedChars.join("");
 }
-// if (usableChars.length === 0) {
-//   return `Password must contain at least ONE character type.`;
-// } else if (qtyInputs.value === 0) {
-//   return `Please specific how many of at least ONE character type.`;
-// }
-
-//   let password = [];
-//   for (i = 0; i < length; i++) {
-//     let randomSelection = Math.floor(Math.random() * usableChars.length);
-//     password += usableChars[randomSelection];
-//   }
-//   return password;
-// }
